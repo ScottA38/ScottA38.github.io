@@ -24,10 +24,11 @@ github_username:  ScottA38
 
 # Build settings
 markdown: kramdown
-theme: jekyll-theme-jam
+remote_theme: desiredpersona/jekyll-theme-jam
 plugins:
   - jekyll-feed
   - jekyll-github-metadata
+  - jekyll-remote-theme
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
