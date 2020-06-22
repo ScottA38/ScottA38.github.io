@@ -19,7 +19,7 @@ description: >- # this means to ignore newlines until "baseurl\:"
   Behold my smoking hot project showreel. I love Python, I love Node!
   I am a keen developer looking for the right fit for my first professional role in full-stack Development.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "srm_dev" # the base hostname & protocol for your site, e.g. http://example.com
+url: "" # the base hostname & protocol for your site, e.g. http://example.com
 github_username:  ScottA38
 
 # Build settings
