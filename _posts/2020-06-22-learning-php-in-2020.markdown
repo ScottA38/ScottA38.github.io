@@ -29,12 +29,12 @@ I don't think that **anyone** who has touched web development in the 21st centur
 ***...like this***:
 
 
-![sql warning](/assets/SQL_warning_1.png)
+![sql warning](/assets/images/SQL_warning_1.png)
 ...*or **this***:
 
-![sql warning](/assets/SQL_warning_2.png)
+![sql warning](/assets/images/SQL_warning_2.png)
 ...*or **this***:
-![sql warning](/assets/SQL_warning_3.png)
+![sql warning](/assets/images/SQL_warning_3.png)
 
 When originally approaching `PHP` I was only just managing `python2` string interpolation; no Object-Oriented programming etc. When you are hoping to make a webapp and the first thing that confronts your eyes upon a search for tutorial is that you might be 'vulnerable to hackers and spammers!' it is a tad daunting!
 
@@ -50,7 +50,7 @@ It is little wonder then, that when I was offered a developer task in native PHP
 ...so I decided to attempt it anyway, mainly because I want the job. Here are the discoveries I made along the way.  
 
 
-### <img src="/assets/logo_composer.png" class="v-mid w5" alt="composer-logo"/> Composer
+### <img src="/assets/images/logo_composer.png" class="v-mid w5" alt="composer-logo"/> Composer
 
 I first heard of the [Composer](https://getcomposer.org/) package manager in 2019 from an article *long-cleared from browser* - I took it as a framework tool for building WebApps with PHP, but from memory the article wrote that Composer helped to alleviate some of the archaic character traits and vulnerabilities that have previously hindered the PHP development language. I was not interested in finding out at the time however: I was nose-deep into [`node`](https://nodejs.org/en/) and [`npm`](https://www.npmjs.com/).
 
@@ -58,13 +58,13 @@ Upon commencing my task I would have to admit that initially [Composer](https://
 
 Towards the end of the project I began to get to grips with Composer and I was glad for this - if I wanted to create small lightweight projects I would be much more confident about such a goal with [Composer](https://getcomposer.org/)
 
-### <img src="/assets/php_fig_logo.png" class="v-mid w5" alt="php-fig-logo"/> PHP autoloading
+### <img src="/assets/images/php_fig_logo.png" class="v-mid w5" alt="php-fig-logo"/> PHP autoloading
 
 PHP autoloading is a relatively new concept, and not one that was around when I was originally tinkering with XAMPP as a beginner, however it is more than likely that is a concept that you would need to know if you wanted to approach PHP development in 2020. If you do, make sure to [read the autoloading standard](https://www.php-fig.org/psr/psr-4/), it's not a standards document like you would [see on the W3C](https://www.w3.org/WAI/standards-guidelines/aria/) that would make your eyes bleed with it's exhaustiveness; it's concise and readable; all in all a friendly document (*not what I expected from a PHP community*).
 
 The idea is that autoloading does away with direct filesystem references to PHP documents, meaning that you should only need `require_once` your autoloader at the primary entry point to your functional code, and then allow it to fetch the appropriate classes. It turns `require_once ../../../src/doo-dah/file.php` into `use WebApp\doo-dah\file`. Much nicer.
 
-### <img src="/assets/eclipse_pdt_logo.png" class="v-mid w5" alt="eclipse_logo"/> PHP IDE
+### <img src="/assets/images/eclipse_pdt_logo.png" class="v-mid w5" alt="eclipse_logo"/> PHP IDE
 
 That [painful composer week](#footnote_1) made me realise that I needed to migrate IDE. The super-cool community-based plugin system of [Atom](https://atom.io/) seemed to have no hope of allowing me proper method autocompletion or pre-compiler checking etc. In general `atom` seemed to struggle to achieve these features for most languages, particularly the latter compiler checking.
 
@@ -74,7 +74,7 @@ Nonetheless I tried Eclipse PDT as an experiment, because it didn't cost me anyt
 
 I shouldn't have been sceptical however, because I successfully migrated to Eclipse very quickly - there was really very little to it, as they have [built-in composer support](https://marketplace.eclipse.org/content/composer-php-support). It didn't solve my [autoloading headache](#footnote_1) at the time, but it did allow me to immediately see invalid namespacing
 
-### <img src="/assets/docker_logo.jpeg" class="v-mid w5" alt="docker-logo"/> Docker
+### <img src="/assets/images/docker_logo.jpeg" class="v-mid w5" alt="docker-logo"/> Docker
 
 I previously encountered [Docker](https://www.docker.com/) when I was downloading a development environment of [powerplant](https://github.com/Ecohackerfarm/powerplant). At the time a Powerplant project contributor tried to explain the Docker system to me but I was clueless. I am not sure how it works internally but I would describe it as a much more user-friendly and manipulable version of a virtual machine.
 
@@ -98,7 +98,7 @@ I loaded a PHP-Apache image called: `php:7.4.4-apache`. By searching on [Docker 
 
 On the other hand, Docker did take a lot of tinkering and Googling to get right, probably because I don't understand **almost anything** of what is going on behind the scenes. **Please also be aware** that setting up a docker container is only half of the battle - once you are in you may have to unleash some cool wizardry on your ssh shell inside of the container \*\*\*, or otherwise do a lot of Googling for the appropriate Apache config file (like [.htaccess](http://httpd.apache.org/docs/current/howto/htaccess.html)) to finalise a web server.
 
-![docker-volume-diagram](/assets/docker_volumes.jpeg)
+![docker-volume-diagram](/assets/images/docker_volumes.jpeg)
 <sup>Above is a diagram which demonstrates how a host machine's directory might be 'mounted' inside of 2 different running Docker containers as a 'volume'</sup>
 
 One very cool feature of [Docker](https://www.docker.com/) that really does make it a special development tool is [voluming](https://docs.docker.com/storage/volumes/). If you read the link don't run away screaming yet, just consider it a kind of persistent 'tunnel' of a specific directory on your filesystem to a specific 'mount loccation' of your docker container filesystem. Changed your local filesystem? Changes are mirrored and instantly propagated in your container.

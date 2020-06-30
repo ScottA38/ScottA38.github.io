@@ -246,7 +246,6 @@ PLATFORMS
 
 DEPENDENCIES
   github-pages
-  jekyll (~> 3.8.7)
   jekyll-feed (~> 0.6)
   jekyll-github-metadata (= 2.13.0)
   jekyll-remote-theme
