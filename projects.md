@@ -1,6 +1,8 @@
 ---
 layout: page
 title: "My projects / project contributions"
+permalink: /projects/
+categories: work portfolio
 ---
 {% for repository in site.github.public_repositories %}
   {% for project in site.data.projects %}
