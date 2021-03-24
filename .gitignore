@@ -11,3 +11,4 @@ vendor/
 
 # Capistrano ignores
 config/deploy/
+log/
