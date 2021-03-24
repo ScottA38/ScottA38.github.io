@@ -5,10 +5,6 @@ set :default_stage, "production"
 set :application, "scotta38_aws"
 set :repo_url, "git@github.com:ScottA38/ScottA38.github.io.git"
 set :branch, 'AWS-Migration'
-set :repo_tree, '_site'
-set :deploy_via, :copy
-set :copy_compression, :gzip
-set :use_sudo, false
 
 # the name of the user that should be used for deployments on your VPS
 set :user, "deploy"
@@ -42,7 +38,35 @@ set :pty, true
 # set :local_user, -> { `git config user.name`.chomp }
 
 # Default value for keep_releases is 5
-# set :keep_releases, 5
+set :keep_releases, 3
 
 # Uncomment the following to require manually verifying the host key before first deploy.
 # set :ssh_options, verify_host_key: :secure
+
+# Tasks for deploying Jekyll
+namespace :deploy do
+  desc 'Build the website on the remote server using Jekyll'
+  task :jekyll_build do
+    on roles(:web) do
+      within "#{fetch(:deploy_to)}/current" do
+        execute :bundle, :exec, :jekyll, 'build'
+		execute "rm -f _site/Capfile"
+		execute "rm -rf _site/config"
+      end
+    end
+  end
+  task :bundle_update do
+	on roles(:web) do
+		within "#{fetch(:deploy_to)}/current" do
+		  if defined? Bundler
+			execute :bundle, 'update'
+		  else
+			error = CommandError.new("ruby-bundler not found on remote server - exiting")
+		  end
+        end
+	end
+  end
+end
+
+before "deploy:jekyll_build", "deploy:bundle_update"
+after "deploy:symlink:release", "deploy:jekyll_build"

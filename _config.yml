@@ -23,7 +23,6 @@ github_username:  ScottA38
 
 # Config for Github Metadata
 repository: "scotta38/scotta.github.io"
-github: [metadata]
 
 # Build settings
 markdown: kramdown
