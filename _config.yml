@@ -21,6 +21,10 @@ baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 github_username:  ScottA38
 
+# Config for Github Metadata
+repository: "scotta38/scotta.github.io"
+github: [metadata]
+
 # Build settings
 markdown: kramdown
 remote_theme: desiredpersona/jekyll-theme-jam
