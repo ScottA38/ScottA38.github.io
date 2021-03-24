@@ -1,7 +1,13 @@
 _site
 .sass-cache
-.jekyll-metadata
-
-vendor/
-.jekyll-cache/
 .nanorc
+
+# Jekyll ignores
+.jekyll-metadata
+.jekyll-cache/
+
+# Ruby ignores
+vendor/
+
+# Capistrano ignores
+config/deploy/
