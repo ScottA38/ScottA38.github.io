@@ -1,0 +1,22 @@
+---
+layout: page
+title: "My projects / project contributions"
+permalink: /projects/
+categories: work portfolio
+---
+<ul class="flex flex-wrap">
+{% graphql endpoint: "github", query: "user_repos" %}
+  {% for repo in data["user"]["repositories"]["nodes"] %}
+    <article class="br2 ba dark-gray mb4 mh3 b--black-10 w-third w-50-m w-25-l mw6 tc h5">
+      <img src='{{repo["openGraphImageUrl"]}}' class="db w-100 h-50"/>
+        <div class="dt w-100 mt1 pt3-ns pb3-ns">
+          <div class="dtc">
+            <h5 class="f5 f6-ns mv0">
+              <a href='{{repo["url"]}}'>{{repo["name"]}}</a>
+            </h5>
+          </div>
+        </div>
+    </article>
+  {% endfor %}
+{% endgraphql %}
+</ul>
