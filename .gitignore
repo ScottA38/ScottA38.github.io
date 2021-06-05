@@ -1,6 +1,16 @@
 _site
 .sass-cache
-.jekyll-metadata
-
-vendor/
 .nanorc
+
+# Jekyll ignores
+.jekyll-metadata
+.jekyll-cache/
+# to ignore jeql config with secret keys
+_config.jeql.yml
+
+# Ruby ignores
+vendor/
+
+# Capistrano ignores
+config/deploy/
+log/
