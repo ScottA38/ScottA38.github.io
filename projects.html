@@ -1,18 +1,20 @@
 ---
 layout: page
-title: "My projects / project contributions"
+title: "Projects / contributions"
 permalink: /projects/
 categories: work portfolio
 ---
-<ul class="flex flex-wrap">
+<ul class="absolute flex flex-wrap">
   {% for repository in site.github.public_repositories %}
     <article class="br2 ba dark-gray mb4 mh3 b--black-10 w-50-m w-25-l mw6 tc h5">
       {% if site.data.projects[repository.name] != nil %}
-        <img class="br2 h10 w10 h-50 dib"
-        src="{{ site.data.projects[repository.name].url }}" alt="{{ site.data.projects[repository.name].alt }}"/>
+        <div class="card-img br2 h10 w10 h-50 w-100 dib"
+        style="background-image: url('{{ site.data.projects[repository.name].url }}')" alt="{{ site.data.projects[repository.name].alt }}">
+        </div>
       {% else %}
-        <img class="br2 h10 w10 h-50 dib"
-        src="{{ repository.owner.avatar_url }}" alt="{{ repository.owner.login }}"/>
+        <div class="card-img br2 h10 w10 h-50 w-100 dib"
+        style="background-image: url('{{ repository.owner.avatar_url }}')" alt="{{ repository.owner.login }}">
+        </div>
       {% endif %}
        <div class="dt w-100 mt1 pt3-ns pb3-ns">
          <div class="dtc">
@@ -21,7 +23,7 @@ categories: work portfolio
                {{ repository.name | replace:'_', ' ' | replace:'-', ' '}}
              </a>
               {% if repository.fork %}
-                <i style="display: block">fork</i>
+                <i style="display: block">(fork)</i>
               {% endif %}
            </h5>
          </div>
