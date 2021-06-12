@@ -4,28 +4,35 @@ title: "Projects / contributions"
 permalink: /projects/
 categories: work portfolio
 ---
-<ul class="absolute flex flex-wrap">
+<ul class="items-start absolute flex flex-wrap">
   {% for repository in site.github.public_repositories %}
-    <article class="br2 ba dark-gray mb4 mh3 b--black-10 w-50-m w-25-l mw6 tc h5">
+    <article class="card br2 ba dark-gray mb4 mh3 b--black-10 w-50-m w-25-l mw6">
       {% if site.data.projects[repository.name] != nil %}
-        <div class="card-img br2 h10 w10 h-50 w-100 dib"
-        style="background-image: url('{{ site.data.projects[repository.name].url }}')" alt="{{ site.data.projects[repository.name].alt }}">
+        <div class="card-img h4 br2 w10 w-100"
+        style="background-image: url('{{ site.data.projects[repository.name].url }}')"
+        alt="{{ site.data.projects[repository.name].alt }}">
         </div>
       {% else %}
-        <div class="card-img br2 h10 w10 h-50 w-100 dib"
-        style="background-image: url('{{ repository.owner.avatar_url }}')" alt="{{ repository.owner.login }}">
+        <div class="card-img h4 br2 w10 w-100"
+        style="background-image: url('{{ repository.owner.avatar_url }}')"
+        alt="{{ repository.owner.login }}">
         </div>
       {% endif %}
-       <div class="dt w-100 mt1 pt3-ns pb3-ns">
-         <div class="dtc">
-           <h5 class="f5 f6-ns mv0 fw4">
-             <a class="avenir no-underline" href='{{ repository.html_url }}' alt="{{ repository.name }}">
-               {{ repository.name | replace:'_', ' ' | replace:'-', ' '}}
-             </a>
-              {% if repository.fork %}
-                <i style="display: block">(fork)</i>
-              {% endif %}
-           </h5>
+       <div class="ph2 w-100 mt1 pt3-ns pb3-ns">
+         <div>
+          {% if repository.fork %}
+            <img class="di v-mid mw1 o-50" src="/assets/images/projects_page/gh_fork.png"/>
+          {% else %}
+            <img class="di v-mid mw1 o-50" src="/assets/images/projects_page/repo.png"/>
+          {% endif %}
+          <h5 class="di v-mid ml2 f5 f6-ns mv0 fw4">
+           <a class="avenir no-underline" href='{{ repository.html_url }}' alt="{{ repository.name }}">
+             {{ repository.name | replace:'_', ' ' | replace:'-', ' '}}
+           </a>
+          </h5>
+          {% if repository.description %}
+            <p class="desc">{{ repository.description }}</p>
+          {% endif %}
          </div>
        </div>
     </article>
