@@ -6,7 +6,7 @@ categories: work portfolio
 ---
 <ul class="items-start absolute flex flex-wrap">
   {% for repository in site.github.public_repositories %}
-    <article class="card br2 ba dark-gray mb4 mh3 b--black-10 w-50-m w-25-l mw6">
+    <article class="card w-100 w-50-m w-25-l mw6 br2 ba dark-gray mb4 mh3 b--black-10">
       {% if site.data.projects[repository.name] != nil %}
         <div class="card-img h4 br2 w10 w-100"
         style="background-image: url('{{ site.data.projects[repository.name].url }}')"
