@@ -1,0 +1,6 @@
+[submodule "scotta38/cex_webscraper"]
+	url = https://www.github.com/scotta38/cex_webscraper
+	path = cex_webscraper
+[submodule "cex_webscraper"]
+	path = cex_webscraper
+	url = https://www.github.com/scotta38/cex_webscraper
