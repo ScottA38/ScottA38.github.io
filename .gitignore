@@ -5,6 +5,8 @@ _site
 # Jekyll ignores
 .jekyll-metadata
 .jekyll-cache/
+# to ignore jeql config with secret keys
+_config.jeql.yml
 
 # Ruby ignores
 vendor/

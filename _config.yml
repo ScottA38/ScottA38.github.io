@@ -16,7 +16,7 @@
 title: Scott Anderson - a developer
 email: 94andersonsc@googlemail.com
 description: >- # this means to ignore newlines until "baseurl\:"
-  Behold my smoking hot project showreel. I love Python, I love Node!
+  A dedicated and attentive developer from the UK, currently based in Latvia
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 github_username:  ScottA38
@@ -26,11 +26,12 @@ repository: "scotta38/scotta.github.io"
 
 # Build settings
 markdown: kramdown
-remote_theme: desiredpersona/jekyll-theme-jam
+remote_theme: scotta38/jekyll-theme-jam
 plugins:
   - jekyll-feed
   - jekyll-github-metadata
   - jekyll-remote-theme
+  - jeql
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list

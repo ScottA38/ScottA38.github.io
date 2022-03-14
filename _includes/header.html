@@ -1,4 +1,11 @@
+{% if page.layout == 'home' %}
 <header class="mw8 w-100 center sans-serif tracked ttu mv5 ph3">
   <a class="f4 fw6 black hover-black link" href="{{ '/' | absolute_url }}" title="Home">{{ site.title }}</a>
-  <script src="/assets/js/getHeader.js"></script>
+
+    <h5 class="f6 fw3 black-60 ttn">
+      <strong class="f4 fw6 mr2 black">&gt</strong>
+      {{ site.description }}
+      <div class="blink dib ml1">_</div>
+    </h5>
 </header>
+{% endif %}
