@@ -4,18 +4,28 @@ title: "My projects / project contributions"
 permalink: /projects/
 categories: work portfolio
 ---
-<ul class="flex flex-wrap">
+<ul class="items-start absolute flex flex-wrap">
 {% graphql endpoint: "github", query: "user_repos" %}
   {% for repo in data["user"]["repositories"]["nodes"] %}
-    <article class="br2 ba dark-gray mb4 mh3 b--black-10 w-third w-50-m w-25-l mw6 tc h5">
-      <img src='{{repo["openGraphImageUrl"]}}' class="db w-100 h-50"/>
-        <div class="dt w-100 mt1 pt3-ns pb3-ns">
-          <div class="dtc">
-            <h5 class="f5 f6-ns mv0">
-              <a href='{{repo["url"]}}'>{{repo["name"]}}</a>
-            </h5>
-          </div>
+    <article class="card w-100 w-50-m w-25-l mw6 br2 ba dark-gray mb4 mh3 b--black-10">
+      <img src='{{ repo["openGraphImageUrl"] }}' class="card-img h4 br2 w10 w-100"/>
+      <div class="ph2 w-100 mt1 pt3-ns pb3-ns">
+        <div>
+         {% if repository.fork %}
+           <img class="di v-mid mw1 o-50" src="/assets/images/projects_page/gh_fork.png"/>
+         {% else %}
+           <img class="di v-mid mw1 o-50" src="/assets/images/projects_page/repo.png"/>
+         {% endif %}
+         <h5 class="di v-mid ml2 f5 f6-ns mv0 fw4">
+          <a class="avenir no-underline" href='{{ repo["url"] }}' alt='{{ repo["name"] }}'>
+            {{ repo["nameWithOwner"] | replace:'_', ' ' | replace:'-', ' '}}
+          </a>
+         </h5>
+         {% if repo["description"] %}
+           <p class="desc">{{ repo["description"] }}</p>
+         {% endif %}
         </div>
+      </div>
     </article>
   {% endfor %}
 {% endgraphql %}

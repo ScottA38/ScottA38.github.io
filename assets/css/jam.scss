@@ -2,30 +2,12 @@
 ---
 @import "_theme";
 
-@mixin link-style {
-  color: $link-colour;
-
-  &:hover {
-    transition: none;
-    text-decoration: none;
-    color: $link-hover-colour;
-  }
-}
-
 $link-colour: #a1261b;
 $link-hover-colour: #641b16;
 
 // Soften the top edge of the footer
 body > footer:last-child {
   background-image : linear-gradient(to bottom, rgba(255,255,255, 0), rgba(255,255,255, 1) 90%);
-}
-
-article a {
-  @include link-style;
-}
-
-main .link p {
-  @include link-style;
 }
 
 // Add blinking cursor to site description
@@ -44,5 +26,42 @@ main .link p {
   }
   50% {
     opacity: 0;
+  }
+}
+
+.card {
+  position: relative;
+  min-height: 300px;
+  max-height: 300px;
+  transition: max-height 0.3s ease-in;
+  overflow-y: hidden;
+  text-overflow: ellipsis;
+  box-shadow: -10px 10px 10px rgba(100, 100, 100, 0.1);
+
+  &:before {
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 50%;
+    background: linear-gradient(to top, #FFF 0%, transparent 50%);
+  }
+
+  &:hover {
+    max-height: 1000000px;
+
+    &:before {
+      visibility: hidden;
+    }
+  }
+
+  &-img {
+    display: block;
+    box-sizing: border-box;
+    padding: 10px 10px;
+    margin: 0 auto;
+    object-fit: contain;
   }
 }
