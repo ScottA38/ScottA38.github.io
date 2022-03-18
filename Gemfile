@@ -41,4 +41,7 @@ gem "webrick", "~> 1.7"
 # Installs related to deployment
 group :development do
   gem "capistrano", "~> 3.16", require: false
+  gem 'capistrano-git-with-submodules', '~> 2.0'
+  gem "readapt", "~> 1.4"
+  gem "ruby-debug-ide", "~> 0.7.3"
 end

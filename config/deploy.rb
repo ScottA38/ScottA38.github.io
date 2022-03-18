@@ -8,7 +8,7 @@ set :branch, 'AWS-Migration'
 
 # the name of the user that should be used for deployments on your VPS
 set :user, "deploy"
-role :app, 'aws-server'
+role :web, 'aws-server'
 
 # Default branch is :master
 #ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
@@ -27,7 +27,7 @@ set :deploy_to, "/var/www/html/#{fetch(:application)}"
 set :pty, true
 
 # Default value for :linked_files is []
-# append :linked_files, "config/database.yml"
+append :linked_files, "_config.jeql.yml"
 
 # Default value for linked_dirs is []
 # append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/system"
@@ -47,13 +47,24 @@ set :ssh_options, {:forward_agent => true}
 
 # Tasks for deploying Jekyll
 namespace :deploy do
+  desc 'Copy untracked (secret) files to remote'
+  task :copy_secrets do
+    on roles(:web) do
+      within "#{fetch(:deploy_to)}/current" do
+        # Copy across config file
+        :linked_files.each do |f|
+          upload! f , "#{fetch(:deploy_to)}/current" + f
+        end
+      end
+    end
+  end
   desc 'Build the website on the remote server using Jekyll'
   task :jekyll_build do
     on roles(:web) do
       within "#{fetch(:deploy_to)}/current" do
-        execute :bundle, :exec, :jekyll, 'build'
-		execute "rm -f _site/Capfile"
-		execute "rm -rf _site/config"
+        execute :bundle, :exec, :jekyll, 'build', '--config', '_config.yml,_config.jeql.yml'
+        execute "rm -f _site/Capfile"
+        execute "rm -rf _site/config"
       end
     end
   end
@@ -61,14 +72,16 @@ namespace :deploy do
 	on roles(:web) do
 		within "#{fetch(:deploy_to)}/current" do
 		  if defined? Bundler
-			execute :bundle, 'update'
-		  else
-			error = CommandError.new("ruby-bundler not found on remote server - exiting")
-		  end
+        execute :bundle, 'update'
+        else
+        error = CommandError.new("ruby-bundler not found on remote server - exiting")
         end
-	end
+      end
+	  end
   end
 end
 
 before "deploy:jekyll_build", "deploy:bundle_update"
 after "deploy:symlink:release", "deploy:jekyll_build"
+
+append :linked_dirs, '.bundle', '.jekyll-cache'

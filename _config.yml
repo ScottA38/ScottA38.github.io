@@ -26,7 +26,7 @@ repository: "scotta38/scotta.github.io"
 
 # Build settings
 markdown: kramdown
-remote_theme: scotta38/jekyll-theme-jam
+remote_theme: desiredpersona/jekyll-theme-jam
 plugins:
   - jekyll-feed
   - jekyll-github-metadata
