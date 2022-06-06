@@ -4,3 +4,9 @@
 [submodule "cex_webscraper"]
 	path = cex_webscraper
 	url = https://www.github.com/scotta38/cex_webscraper
+[submodule "file_drop"]
+	path = file_drop
+	url = https://github.com/ScottA38/file_drop.git
+[submodule "note"]
+	path = note
+	url = git@github.com:ScottA38/note.git
